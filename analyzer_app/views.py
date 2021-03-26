@@ -319,10 +319,8 @@ def Graph(request):
 def showGraph(request):
     vul_port = df[["Host"]].values
     vul_port_list = np.unique(vul_port)
-    print(vul_port_list)
     port_len = len(vul_port_list)
-    print(port_len)
-
+ 
     vul_per_host = list()
     total_vul_cnt = 0
     col_val = df[["Host"]].values
@@ -332,7 +330,6 @@ def showGraph(request):
             vul_per_host.append(sum)
             total_vul_cnt = total_vul_cnt + sum
         
-    print(vul_per_host)
 
     fig = plt.figure(figsize =(10, 7)) 
     #plt.pie(vul_per_host, labels = vul_port_list) 
@@ -341,7 +338,6 @@ def showGraph(request):
 
     col_val = df[["Host"]].values
     ip_list = np.unique(col_val)
-    ip_len = len(ip_list)
     tuple_list = []
 
     for ip in ip_list:
@@ -350,8 +346,6 @@ def showGraph(request):
     t1 = tuple(tuple_list)
 
     explode = t1
-    
-    print(explode)
     
     # Creating autocpt arguments 
     def func(pct, allvalues): 
