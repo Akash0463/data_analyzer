@@ -379,5 +379,5 @@ def showGraph(request):
     plt.setp(autotexts, size = 8, weight ="bold") 
     ax.set_title("Pie chart")
 
-    plt.savefig('media/sale_purchase_peichart.png',dpi=100)
+    plt.savefig('media/peichart.png',dpi=100)
     return render(request,'showGraph.html')
