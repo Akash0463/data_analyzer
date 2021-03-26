@@ -1,0 +1,36 @@
+{% extends 'main.html' %} {% block content %}
+
+<script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<h1 class="mb-5 text-center">{{ question.question_text }}</h1>
+
+
+<div id="myChart"></div>
+
+
+
+<script>
+    var chartData = {
+        "type": "bar",
+        "scale-x": {
+            "values": [
+                "Akash", "Ravi", "Anil"
+            ]
+        },
+        "series": [{
+            "values": [
+                25, 18, 15
+            ]
+        }]
+    }
+
+
+    zingchart.render({
+        id: "myChart",
+        data: chartData,
+    });
+    
+</script>
+
+{% endblock %}

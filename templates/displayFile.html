@@ -1,0 +1,52 @@
+{% extends 'main.html' %}
+
+{% block content%}
+
+<form action='saveData' method='POST'>{% csrf_token %}
+
+<div class = "row">
+    <div class = "col-md">
+	<div class = "card card-body">
+		
+	<table class="table table-sm">
+    <tr>
+    {% for column in head %}
+		<th>{{column}}</th>
+    {% endfor %}
+    </tr>
+
+
+	{% for line in data %}
+	<tr>
+        {% for row in line %}
+		<td>{{row}}</td>
+        {% endfor %}
+	</tr>
+	{% endfor %}
+	
+    <tr>
+    {% for column in head %}
+		<td></td>
+    {% endfor %}
+    </tr>
+    
+    <tr>
+    {% for column in head %}
+        <td><input type="checkbox" name="checkval" value="{{column}}">&nbsp;{{column}}</td>
+    {% endfor %}
+    </tr>
+</table>
+
+
+	<input class="btn btn-primary" type="submit" value="Save">
+
+</div>
+</div>
+</div>
+
+</form>
+{% endblock %}
+
+
+
+

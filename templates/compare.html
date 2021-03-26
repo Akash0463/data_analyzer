@@ -1,0 +1,158 @@
+{% extends 'main.html' %} {% load static %} {% block content%}
+
+
+<div class="container h-75">
+
+    <div class="row">
+        <div class="col">
+            <div class="d-flex justify-content-center h-100">
+                <div class="user_card">
+                    <div class="d-flex justify-content-center">
+                        <h1 id="form-title"><u>Current Report</u></h1>
+                    </div>
+                    <div class="d-flex justify-content-center form_container">
+                        <div class="row">
+                            <div class="col-md">
+                                <div class="card card-body">
+
+                                    <table border=2 class="table table-sm">
+                                        <tr>
+                                            <th rowspan=2>Host IP</th>
+                                            <th rowspan=2>Total vulnerabilities</th>
+                                            <th colspan=5>Risk</th>
+                                        </tr>
+                                        <tr>
+                                            <th>Critical</th>
+                                            <th>High</th>
+                                            <th>Medium</th>
+                                            <th>Low</th>
+                                            <th>None</th>
+                                        </tr>
+
+
+                                        {% for key,val in vul_per_host.items %}
+                                        <tr>
+                                            <td>{{key}}</td>
+
+                                            <td><a href="{% url 'showVulInfo' key 'vul_cnt' 'df' %}">{{val.0}}</td>
+                                            <td><a href="{% url 'showVulInfo' key 'Critical' 'df' %}">{{val.1}}</td>
+                                            <td><a href="{% url 'showVulInfo' key 'High' 'df' %}">{{val.2}}</td>
+                                            <td><a href="{% url 'showVulInfo' key 'Medium' 'df' %}">{{val.3}}</td>
+                                            <td><a href="{% url 'showVulInfo' key 'Low' 'df' %}">{{val.4}}</td>
+                                            <td><a href="{% url 'showVulInfo' key 'None' 'df' %}">{{val.5}}</td>
+
+                                        </tr>
+                                        {% endfor %}
+
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{count_list.0}}</td>
+                                            <td>{{count_list.1}}</td>
+                                            <td>{{count_list.2}}</td>
+                                            <td>{{count_list.3}}</td>
+                                            <td>{{count_list.4}}</td>
+                                            <td>{{count_list.5}}</td>
+                                            <td>{{count_list.6}}</td>
+
+                                        </tr>
+
+
+
+                                    </table>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="col">
+            <div class="d-flex justify-content-center h-100">
+                <div class="user_card">
+                    <div class="d-flex justify-content-center">
+                        <h1 id="form-title"><u>Previous Report</u></h1>
+                    </div>
+                    <div class="d-flex justify-content-center form_container">
+                        <div class="row">
+                            <div class="col-md">
+                                <div class="card card-body">
+
+                                    <table border=2 class="table table-sm">
+                                        <tr>
+                                            <th rowspan=2>Host IP</th>
+                                            <th rowspan=2>Total vulnerabilities</th>
+                                            <th colspan=5>Risk</th>
+                                        </tr>
+                                        <tr>
+                                            <th>Critical</th>
+                                            <th>High</th>
+                                            <th>Medium</th>
+                                            <th>Low</th>
+                                            <th>None</th>
+                                        </tr>
+
+
+                                        {% for key,val in vul_per_host1.items %}
+                                        <tr>
+                                            <td>{{key}}</td>
+
+                                            <td><a href="{% url 'showVulInfo' key 'vul_cnt' 'df1' %}">{{val.0}}</td>
+                                            <td><a href="{% url 'showVulInfo' key 'Critical' 'df1' %}">{{val.1}}</td>
+                                            <td><a href="{% url 'showVulInfo' key 'High' 'df1' %}">{{val.2}}</td>
+                                            <td><a href="{% url 'showVulInfo' key 'Medium' 'df1' %}">{{val.3}}</td>
+                                            <td><a href="{% url 'showVulInfo' key 'Low' 'df1' %}">{{val.4}}</td>
+                                            <td><a href="{% url 'showVulInfo' key 'None' 'df1' %}">{{val.5}}</td>
+
+                                        </tr>
+                                        {% endfor %}
+
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>{{count_list1.0}}</td>
+                                            <td>{{count_list1.1}}</td>
+                                            <td>{{count_list1.2}}</td>
+                                            <td>{{count_list1.3}}</td>
+                                            <td>{{count_list1.4}}</td>
+                                            <td>{{count_list1.5}}</td>
+                                            <td>{{count_list1.6}}</td>
+
+                                        </tr>
+
+
+
+                                    </table>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

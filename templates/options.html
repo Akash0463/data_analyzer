@@ -1,0 +1,69 @@
+{% extends 'main.html' %}
+
+{% block content%}
+
+<form action='saveData' method='POST'>{% csrf_token %}
+
+<div class = "row">
+    <div class = "col-md">
+	<div class = "card card-body">
+		
+	<table class="table table-sm">
+    <tr>
+		<th>Numer of Unique IPs /Host Names which are Vulnerable.</th>
+        <td><a class = "btn btn-sm btn-info" href = "{% url 'showUniqueIPs' '1' %}">View</a></td>
+    </tr>	
+    
+    <tr>
+		<th>Number of Vulnerablities per IP/Host</th>
+        <td><a class = "btn btn-sm btn-info" href = "{% url 'showUniqueIPs' '2' %}">View</a></td>
+    </tr>
+
+    <tr>
+		<th>Number of Unique Vulnerable Ports</th>
+        <td><a class = "btn btn-sm btn-info" href = "{% url 'showUniqueIPs' '3' %}">View</a></td>
+    </tr>
+
+    <tr>
+		<th>Number of Vulnerable ports per IP/Host</th>
+        <td><a class = "btn btn-sm btn-info" href = "{% url 'showUniqueIPs' '4' %}">View</a></td>
+    </tr>
+    
+    <tr>
+		<th>Total Vulnerablities Deocted in a Pie Chart and Bar Chart</th>
+        <td><a class = "btn btn-sm btn-info" href = "{% url 'showGraph' %}">View</a></td>
+    </tr>
+
+    <tr>
+		<th>List Out Unique Vulnerablities and their classification.</th>
+        <td><a class = "btn btn-sm btn-info" href = "{% url 'showUniqueIPs' '6' %}">View</a></td>
+    </tr>
+
+    <tr>
+		<th>Compare Previous reports.</th>
+        <td><a class = "btn btn-sm btn-info" href = "{% url 'comparePreviousReports' %}">View</a></td>
+    </tr>
+
+    <tr>
+		<th>View File Content.</th>
+        <td><a class = "btn btn-sm btn-info" href = "{% url 'displayFile'  %}">View</a></td>
+    </tr>
+
+    <tr>
+		<th>View Date wise scan report.</th>
+        <td><a class = "btn btn-sm btn-info" href = "{% url 'showUniqueIPs' '7' %}">View</a></td>
+    </tr>
+
+    </table>
+
+
+</div>
+</div>
+</div>
+
+</form>
+{% endblock %}
+
+
+
+

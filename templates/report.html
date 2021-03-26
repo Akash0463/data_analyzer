@@ -1,0 +1,178 @@
+{% extends 'main.html' %} {% load static %} {% block content%}
+
+
+<div class="container h-75">
+    <div class="d-flex justify-content-center h-100">
+        <div class="user_card">
+            <div class="d-flex justify-content-center">
+                <h1 id="form-title"><u>Report</u></h1>
+            </div>
+            <div class="d-flex justify-content-center form_container">
+
+                {% if pk1 %}
+                <div class="row">
+                    <div class="col-md">
+
+                        <div class="d-flex justify-content-center">
+                            <h3 id="form-title">Total Unique IPs : {{ip_len}}</h3>
+                        </div>
+
+                        <div class="card card-body">
+
+                            <table border=2 class="table table-sm">
+                                <tr>
+                                    <th>Host IP</th>
+                                </tr>
+
+
+                                {% for ip in ip_list %}
+                                <tr>
+                                    <td>{{ip}}</td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                {% endif %} {% if pk2 %}
+                <div class="row">
+                    <div class="col-md">
+
+                        <div class="card card-body">
+
+                            <table border=2 class="table table-sm">
+                                <tr>
+                                    <th rowspan=2>Host IP</th>
+                                    <th rowspan=2>Total vulnerabilities</th>
+                                    <th colspan=5>Risk</th>
+                                </tr>
+                                <tr>
+                                    <th>Critical</th>
+                                    <th>High</th>
+                                    <th>Medium</th>
+                                    <th>Low</th>
+                                    <th>None</th>
+                                </tr>
+
+
+                                {% for key,val in vul_per_host.items %}
+                                <tr>
+                                    <td>{{key}}</td>
+
+                                    <td><a href="{% url 'showVulInfo' key 'vul_cnt' 'df' %}">{{val.0}}</td>
+                                    <td><a href="{% url 'showVulInfo' key 'Critical' 'df' %}">{{val.1}}</td>
+                                    <td><a href="{% url 'showVulInfo' key 'High' 'df' %}">{{val.2}}</td>
+                                    <td><a href="{% url 'showVulInfo' key 'Medium' 'df' %}">{{val.3}}</td>
+                                    <td><a href="{% url 'showVulInfo' key 'Low' 'df' %}">{{val.4}}</td>
+                                    <td><a href="{% url 'showVulInfo' key 'None' 'df' %}">{{val.5}}</td>
+
+                                </tr>
+                                {% endfor %}
+
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <td>{{count_list.0}}</td>
+                                    <td>{{count_list.1}}</td>
+                                    <td>{{count_list.2}}</td>
+                                    <td>{{count_list.3}}</td>
+                                    <td>{{count_list.4}}</td>
+                                    <td>{{count_list.5}}</td>
+                                    <td>{{count_list.6}}</td>
+
+                                </tr>
+
+
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                {% endif %}
+
+                {% if pk3 %}
+                <div class="row">
+                    <div class="col-md">
+
+                        <div class="d-flex justify-content-center">
+                            <h3 id="form-title">Total Unique Ports : {{vul_port_len}}</h3>
+                        </div>
+
+                        <select size="20" multiple="multiple">
+                            {% for port in vul_port_list %}
+                            <option value="1"> {{port}} </option>
+                            {% endfor %}
+
+                        </select>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if pk4 %}
+                <div class="row">
+                    <div class="col-md">
+                        <div class="card card-body">
+
+                            <table border=2 class="table table-sm">
+                                <tr>
+                                    <th>Host IP</th>
+                                    <th>Total vulnerable Ports</th>
+                                </tr>
+
+                                {% for key,val in vul_ports_per_host.items %}
+                                <tr>
+                                    <td>{{key}}</td>
+                                    <td>{{val}}</td>
+                                </tr>
+                                {% endfor %}
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if pk6 %}
+                <div class="row">
+                    <div class="col-md">
+                        <div class="d-flex justify-content-center">
+                            <h3 id="form-title">Total Unique Vulnerablities : {{unique_vul_list_len}}</h3>
+                        </div>
+
+                        <div class="card card-body">
+
+                            <table border=2 class="table table-sm">
+                                <tr>
+                                    <th>Vulnerability Description</th>
+                                </tr>
+
+                                {% for vul in unique_vul_list %}
+                                <tr>
+                                    <td>{{vul}}</td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                            <input class="btn btn-primary" type="submit" value='Back' name="Back">
+                        </div>
+                    </div>
+                </div>
+
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content%}
+
+<div class="container h-75">
+    <div class="d-flex justify-content-center h-100">
+        <div class="user_card">
+            <div class="d-flex justify-content-center">
+                <h1 id="form-title"><u>{{host}}</u></h1>
+            </div>
+            <div class="d-flex justify-content-center form_container">
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="card card-body">
+
+                                <table border=2 class="table table-sm">
+                                    <tr>
+                                        <th>Ports</th>
+                                        {% for table in tbname %}
+                                            <th>{{table}}</th>
+                                        {% endfor %}
+                                        
+                                    </tr>
+
+                                        {% for key,val in compare_report.items %}
+                                        <tr>
+                                            <td>{{key}}</td>
+                                            {% for vulnerability in val %}
+                                                <td>{{vulnerability}}</td>
+                                            {% endfor %}
+                                        </tr>
+                                        {% endfor %}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
