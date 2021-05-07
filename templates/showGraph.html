@@ -5,11 +5,56 @@
 <div class="container h-75">
     <div class="d-flex justify-content-center h-100">
         <div class="user_card">
-            <div class="d-flex justify-content-center">
-                <h1 id="form-title">PieChart</h1>
-            </div>
+            {% if option1 %}
+                <div class="d-flex justify-content-center">
+                    <h1 id="form-title">PieChart</h1>
+                </div>
+                <img src="./media/piechart.png" />
+            {% endif %}
 
-            <img src="./media/peichart.png" />
+            {% if option2 %}
+                <div class="d-flex justify-content-center">
+                    <h1 id="form-title">Bar Graph</h1>
+                </div>
+                <img src="./media/bar_graph.png" />
+            {% endif %}
+
+
+            {% if option3 %}
+                <div class="d-flex justify-content-center">
+                    <h1 id="form-title">Horizontal Bar Graph</h1>
+                </div>
+                <img src="./media/horizontal_graph.png" />
+            {% endif %}
+
+            {% if option4 %}
+                <div class="d-flex justify-content-center">
+                    <h1 id="form-title">Line Graph</h1>
+                </div>
+                <img src="./media/line_graph.png" />
+            {% endif %}
+
+            {% if option5 %}
+                <div class="d-flex justify-content-center">
+                    <h1 id="form-title">Scatter Plot</h1>
+                </div>
+                <img src="./media/scatter_plot.png" />
+            {% endif %}
+
+            {% if option6 %}
+                <div class="d-flex justify-content-center">
+                    <h1 id="form-title">Dashed Line Graph</h1>
+                </div>
+                <img src="./media/dash_line_graph.png" />
+            {% endif %}
+
+            {% if option7 %}
+                <div class="d-flex justify-content-center">
+                    <h1 id="form-title">Donut Graph</h1>
+                </div>
+                <img src="./media/donut_graph.png" />
+            {% endif %}
+
 
         </div>
     </div>

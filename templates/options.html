@@ -30,8 +30,8 @@
     </tr>
     
     <tr>
-		<th>Total Vulnerablities Deocted in a Pie Chart and Bar Chart</th>
-        <td><a class = "btn btn-sm btn-info" href = "{% url 'showGraph' %}">View</a></td>
+		<th>View Graph Visualization</th>
+        <td><a class = "btn btn-sm btn-info" href = "{% url 'showUniqueIPs' '5' %}">View</a></td>
     </tr>
 
     <tr>
@@ -52,6 +52,11 @@
     <tr>
 		<th>View Date wise scan report.</th>
         <td><a class = "btn btn-sm btn-info" href = "{% url 'showUniqueIPs' '7' %}">View</a></td>
+    </tr>
+
+    <tr>
+		<th>Compare Master IP List.</th>
+        <td><a class = "btn btn-sm btn-info" href = "{% url 'showUniqueIPs' '8' %}">View</a></td>
     </tr>
 
     </table>

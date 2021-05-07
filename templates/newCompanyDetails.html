@@ -7,11 +7,11 @@
         <div class="d-flex justify-content-center h-100">
             <div class="user_card">
                 <div class="d-flex justify-content-center">
-                    <h1 id="form-title">Upload File to find Structure</h1>
+                    <h1 id="form-title">Upload network details</h1>
                 </div>
                 <div class="d-flex justify-content-center form_container">
 
-                    <form method="POST" action="show_file_details" enctype="multipart/form-data">
+                    <form method="POST" action="view_file_content" enctype="multipart/form-data">
                         {% csrf_token %} {% if messages %} {% for message in messages %}
                         <div class="alert alert-{{message.tags}}" id="msg" role="alert">
                             {{message}}
@@ -42,14 +42,9 @@
                         </script>
 
                         <div class="d-flex justify-content-center mt-3 login_container">
-                            <input class="btn login_btn" type="submit" value="Upload">
+                            <input class="btn login_btn" type="submit" value="View Content">
                         </div>
-                <div class="mt-4">
-					<div class="d-flex justify-content-center links">
-						New company network details? <a href="{% url 'new_network' %}" class="ml-2">Add here</a>
-					</div>
-			
-				</div>
+
                     </form>
                 </div>
             </div>

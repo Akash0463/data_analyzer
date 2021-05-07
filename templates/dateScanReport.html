@@ -25,6 +25,7 @@
                                         <th>Host</th>
                                         <th>Scan count</th>
                                         <th>Vulnerability count</th>
+                                        <th>Repeated Vulnerabilities</th>
                                     </tr>
 
 
@@ -33,6 +34,7 @@
                                         <td>{{key}}</td>
                                         <td>{{val.1}}</td>
                                         <td>{{val.0}}</td>
+                                        <td><a href="{% url 'display_duplicate_vul' key %}">{{val.2}}</td>
                                     </tr>
                                     {% endfor %}
 

@@ -1,0 +1,58 @@
+{% extends 'main.html' %}
+{% block content%}
+
+<form action='' method='POST'>{% csrf_token %}
+
+<div class = "row">
+    <div class = "col-md">
+	<div class = "card card-body">
+		
+	<table class="table table-sm">
+    <tr>
+		<th>Pie Chart</th>
+        <td><a class = "btn btn-sm btn-info" href = "{% url 'showGraph' '1' %}">View</a></td>
+    </tr>	
+    
+    <tr>
+		<th>Bar Chart</th>
+        <td><a class = "btn btn-sm btn-info" href = "{% url 'showGraph' '2' %}">View</a></td>
+    </tr>
+
+    <tr>
+		<th>Horizontal Bar Graph</th>
+        <td><a class = "btn btn-sm btn-info" href = "{% url 'showGraph' '3' %}">View</a></td>
+    </tr>
+
+    <tr>
+		<th>Line Graph</th>
+        <td><a class = "btn btn-sm btn-info" href = "{% url 'showGraph' '4' %}">View</a></td>
+    </tr>
+    
+    <tr>
+		<th>Scatter Plot</th>
+        <td><a class = "btn btn-sm btn-info" href = "{% url 'showGraph' '5' %}">View</a></td>
+    </tr>
+
+    <tr>
+		<th>Dashed Line Graph</th>
+        <td><a class = "btn btn-sm btn-info" href = "{% url 'showGraph' '6' %}">View</a></td>
+    </tr>
+
+    <tr>
+		<th>Donut Graph</th>
+        <td><a class = "btn btn-sm btn-info" href = "{% url 'showGraph' '7' %}">View</a></td>
+    </tr>
+
+    </table>
+
+
+</div>
+</div>
+</div>
+
+</form>
+{% endblock %}
+
+
+
+
